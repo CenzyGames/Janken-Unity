@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
     Rigidbody rigidbody;
     Vector3 gravityUp;
 
-
+    public Vector3 rotationDir;
 
     void Awake()
     {
@@ -30,6 +30,7 @@ public class Controller : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         // Disable rigidbody gravity and rotation as this is simulated manually
+        rigidbody.useGravity = false;
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
@@ -49,8 +50,8 @@ public class Controller : MonoBehaviour
         // Align player's up axis with the centre of planet
         transform.rotation = Quaternion.FromToRotation(localUp, gravityUp) * transform.rotation;
         //transform.rotation = Quaternion.FromToRotation(transform.forward, cameraTransform.TransformDirection(new Vector3(inputX, 0, inputY).normalized)) * transform.rotation;
-      
 
+      
 
         // Calculate movement
         Vector3 moveDir = new Vector3(inputX, 0, inputY).normalized;
@@ -71,7 +72,7 @@ public class Controller : MonoBehaviour
         {
             grounded = false;
         }
-		
+        rotationDir = new Vector3(inputX, 0, inputY);
     }
 
     void FixedUpdate()
@@ -82,5 +83,6 @@ public class Controller : MonoBehaviour
         // Apply movement to rigidbody
         Vector3 localMove = transform.TransformDirection(moveAmount) * Time.fixedDeltaTime;
         rigidbody.MovePosition(rigidbody.position + localMove);
+
     }
 }

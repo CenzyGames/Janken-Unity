@@ -1,2 +1,0 @@
-# Janken-Unity
-Game
