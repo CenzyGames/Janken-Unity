@@ -11,7 +11,13 @@ public class Controller : MonoBehaviour
     public LayerMask groundedMask;
     public  Transform planet;
     public float gravity = -9.8f;
-	
+    public bool isLocal = false;
+
+    [HideInInspector]
+    public float inputX;
+    [HideInInspector]
+    public float inputY;
+
     // System vars
     bool grounded;
     Vector3 moveAmount;
@@ -19,6 +25,7 @@ public class Controller : MonoBehaviour
     Transform cameraTransform;
     Rigidbody rigidbody;
     Vector3 gravityUp;
+
 
     public Vector3 rotationDir;
 
@@ -37,10 +44,15 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        //Joystick Input
-        float inputX = CnInputManager.GetAxisRaw("Horizontal");
-        float inputY = CnInputManager.GetAxisRaw("Vertical");
+      
+        if (isLocal)
+        {
 
+            //Joystick Input
+            inputX = CnInputManager.GetAxisRaw("Horizontal");
+            inputY = CnInputManager.GetAxisRaw("Vertical");
+
+        }
         //Calculate gravity direction
         gravityUp = (transform.position - planet.position).normalized;
         Vector3 localUp = transform.up;
@@ -52,6 +64,8 @@ public class Controller : MonoBehaviour
         //transform.rotation = Quaternion.FromToRotation(transform.forward, cameraTransform.TransformDirection(new Vector3(inputX, 0, inputY).normalized)) * transform.rotation;
 
       
+        if (!isLocal)
+            return;
 
         // Calculate movement
         Vector3 moveDir = new Vector3(inputX, 0, inputY).normalized;
@@ -77,6 +91,10 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (!isLocal)
+            return;
+
         // Apply downwards gravity to body
         rigidbody.AddForce(gravityUp * gravity);
 

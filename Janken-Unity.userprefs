@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RemoteThirdPersonSmooth.cs">
+    <Files>
+      <File FileName="Assets\Scripts\RemoteThirdPersonSmooth.cs" Line="59" Column="14" />
+      <File FileName="Assets\Plugins\Pixelplacement\iTween\iTween.cs" Line="3523" Column="1" />
+      <File FileName="Assets\Scripts\appwarp.cs" Line="139" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

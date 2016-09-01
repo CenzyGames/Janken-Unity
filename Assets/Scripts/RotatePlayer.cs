@@ -13,6 +13,9 @@ public class RotatePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!transform.parent.GetComponent<Controller>().isLocal)
+            return;
+
         //Pull the rotation direction from Controller script
         Vector3 rotDir = transform.parent.GetComponent<Controller>().rotationDir;
         if (rotDir != Vector3.zero)

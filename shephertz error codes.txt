@@ -1,0 +1,10 @@
+public static final byte SUCCESS = 0;      
+public static final byte AUTH_ERROR = 1;      
+public static final byte RESOURCE_NOT_FOUND = 2;      
+public static final byte RESOURCE_MOVED = 3;       
+public static final byte BAD_REQUEST = 4;  
+public static final byte CONNECTION_ERR = 5;  
+public static final byte UNKNOWN_ERROR = 6;  
+public static final byte RESULT_SIZE_ERROR = 7;  
+public static final byte SUCCESS_RECOVERED = 8;  
+public static final byte CONNECTION_ERROR_RECOVERABLE = 9; 
